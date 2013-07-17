@@ -1,3 +1,6 @@
+/**
+ * Sub View
+ */
 MyApp.Views.History = Backbone.View.extend({
 //    tmpl: MyApp.Templates.history,
     tmpl: Handlebars.templates.history,

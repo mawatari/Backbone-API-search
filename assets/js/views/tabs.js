@@ -1,3 +1,6 @@
+/**
+ * Manager View
+ */
 MyApp.Views.Tabs = Backbone.View.extend({
 //    tmpl: MyApp.Templates.tabs,
     tmpl: Handlebars.templates.tabs,

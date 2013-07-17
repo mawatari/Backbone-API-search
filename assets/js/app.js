@@ -1,3 +1,6 @@
+/**
+ * President View
+ */
 MyApp.App = Backbone.View.extend({
     el: '#app',
 

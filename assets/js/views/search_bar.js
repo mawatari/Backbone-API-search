@@ -1,3 +1,6 @@
+/**
+ * Sub View
+ */
 MyApp.Views.SearchBar = Backbone.View.extend({
 //    tmpl: MyApp.Templates.search_bar,
     tmpl: Handlebars.templates.search_bar,
