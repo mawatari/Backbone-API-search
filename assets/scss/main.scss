@@ -1,5 +1,13 @@
 @import "compass";
 @import "compass/reset";
+@import "color_theme";
+
+$container_width: 100%;
+
+body {
+  @include theme_blue_color;
+  @include theme_blue_body;
+}
 
 #header-wrap {
   position: fixed;
@@ -8,11 +16,23 @@
   width: 100%;
   #header-container {
     height: 34px;
+    @include theme_blue_special_container;
   }
   #header {
-    width: 100%;
+    width: $container_width;
     margin: 0 auto;
     position: relative;
+    #search-types {
+      margin-left: 10px;
+      display: inline;
+    }
+    .search-query {
+      @include border-radius(4px);
+    }
+    .navbar-inverse .navbar-inner {
+      background: transparent;
+      border: none;
+    }
   }
 }
 
@@ -24,10 +44,40 @@
   #history {
     float: left;
     width: 30%;
+    @include theme_blue_body;
+    @include theme_blue_sidebar_color;
+    #history-title {
+      @include theme_blue_sidebar_hover;
+      height: 23px;
+      padding: 4px;
+    }
+    #history-list {
+      li {
+        float: left;
+      }
+      .history {
+        @include theme_blue_sidebar_border;
+        padding: 9px 4px;
+        @include clearfix;
+        &:hover {
+          @include theme_blue_sidebar_hover;
+          .btn-delete {
+            visibility: visible;
+          }
+        }
+        .history-buttons {
+          float: right;
+        }
+        .btn-delete {
+          visibility: hidden;
+        }
+      }
+    }
   }
   #search-results {
     float: right;
     width: 70%;
+    @include theme_blue_results_background;
   }
 }
 
@@ -38,14 +88,11 @@
   width: 100%;
   #footer-wrap {
     height: 24px;
+    @include theme_blue_special_container;
   }
   #footer {
-    width: 100%;
+    width: $container_width;
     margin: 0 auto;
     position: relative;
   }
-}
-
-header, footer {
-  border: 1px solid #000000;
 }

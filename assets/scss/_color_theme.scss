@@ -1,0 +1,44 @@
+@mixin theme_blue_color {
+  color: #333333;
+}
+
+@mixin theme_blue_body {
+  background: #2d335b;
+}
+
+@mixin theme_blue_special_container {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #292c3e), color-stop(1, #13152a));
+  background: linear-gradient(top, #292c3e 0%, #13152a 100%);
+  color: #bfbfbf;
+}
+
+@mixin theme_blue_container {
+  background: linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+}
+
+@mixin theme_blue_sidebar_active {
+  background: linear-gradient(top, #17162a 0%, #272541 100%);
+}
+
+@mixin theme_blue_sidebar_hover {
+  background-color: #1f203b;
+}
+
+@mixin theme_blue_sidebar_color {
+  color: #aaaaaa;
+}
+
+@mixin theme_blue_sidebar_border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  @include box-shadow(rgba(170, 170, 170, 0.3), 0 1px 0 inset);
+}
+
+@mixin theme_blue_results_border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  @include box-shadow(rgba(255, 255, 255, 1), 0 1px 0);
+  color: #aaaaaa;
+}
+
+@mixin theme_blue_results_background {
+  background: #f9f9f9;
+}
