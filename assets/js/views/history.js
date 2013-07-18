@@ -12,10 +12,18 @@ MyApp.Views.History = Backbone.View.extend({
         this.searches = this.options.searches;
 
         MyApp.mediator.on('search', this.addHistory);
+
+        this.listenTo(this.searches, 'add', this.render);
     },
 
     addHistory: function(search) {
         search.id = +new Date();
         this.searches.create(search);
+    },
+
+    render: function() {
+        this.$el.html(this.tmpl({
+            history: this.searches.toJSON()
+        }));
     }
 });
