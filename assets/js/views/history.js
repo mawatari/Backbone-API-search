@@ -5,6 +5,10 @@ MyApp.Views.History = Backbone.View.extend({
 //    tmpl: MyApp.Templates.history,
     tmpl: Handlebars.templates.history,
 
+    events: {
+        'click .btn-delete': 'removeHistory'
+    },
+
     initialize: function() {
 //        _.bindAll(this);
         _.bindAll.apply(_, [this].concat(_.functions(this)));
@@ -13,7 +17,7 @@ MyApp.Views.History = Backbone.View.extend({
 
         MyApp.mediator.on('search', this.addHistory);
 
-        this.listenTo(this.searches, 'add', this.render);
+        this.listenTo(this.searches, 'add remove', this.render);
     },
 
     addHistory: function(search) {
@@ -21,9 +25,25 @@ MyApp.Views.History = Backbone.View.extend({
         this.searches.create(search);
     },
 
+    removeHistory: function(e) {
+        var id = this._getHistory(e).id;
+        this.searches.get(id).destroy();
+    },
+
     render: function() {
         this.$el.html(this.tmpl({
             history: this.searches.toJSON()
         }));
+    },
+
+    _getHistory: function(e) {
+        var history = {},
+            $target = $(e.target).closest('.history');
+
+        history.id = $target.attr('data-id');
+        history.service = $target.find('.service').text().replace(/^\(|\)$/g, '');
+        history.query = $target.find('.query').text();
+
+        return history;
     }
 });
