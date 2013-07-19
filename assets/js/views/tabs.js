@@ -19,5 +19,12 @@ MyApp.Views.Tabs = Backbone.View.extend({
 //            tmpl: MyApp.Templates.hotpepper
             tmpl: Handlebars.templates.hotpepper
         });
+
+        // Global Eventをハンドリング
+        MyApp.mediator.on('search', this.selectTab);
+    },
+
+    selectTab: function(search) {
+        $('a[href^=#' + search.service + ']').tab('show');
     }
 });
