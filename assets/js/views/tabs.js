@@ -25,7 +25,7 @@ MyApp.Views.Tabs = Backbone.View.extend({
         });
 
         // Global Eventをハンドリング
-        MyApp.mediator.on('search', this.selectTab);
+        MyApp.mediator.on('search historySearch', this.selectTab);
     },
 
     selectTab: function(search) {

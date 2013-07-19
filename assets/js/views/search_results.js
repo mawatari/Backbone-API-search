@@ -11,6 +11,7 @@ MyApp.Views.SearchResults = Backbone.View.extend({
 
         // Global Eventをハンドリング
         MyApp.mediator.on('search:' + this.service, this.search);
+        MyApp.mediator.on('historySearch:' + this.service, this.search);
 
         this.listenTo(this.collections, 'reset', this.render);
     },
