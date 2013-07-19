@@ -17,7 +17,9 @@ MyApp.Views.Tabs = Backbone.View.extend({
         this.hotpeppers = new MyApp.Views.SearchResults({
             el: this.$el.find('#hotpepper-list'),
 //            tmpl: MyApp.Templates.hotpepper
-            tmpl: Handlebars.templates.hotpepper
+            tmpl: Handlebars.templates.hotpepper,
+            collections: new MyApp.Collections.HotpepperList(),
+            service: 'hotpepper'
         });
 
         // Global Eventをハンドリング
