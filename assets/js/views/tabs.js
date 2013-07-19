@@ -11,7 +11,9 @@ MyApp.Views.Tabs = Backbone.View.extend({
         this.twitters = new MyApp.Views.SearchResults({
             el: this.$el.find('#twitter-list'),
 //            tmpl: MyApp.Templates.twitter
-            tmpl: Handlebars.templates.twitter
+            tmpl: Handlebars.templates.twitter,
+            collections: new MyApp.Collections.TwitterList(),
+            service: 'twitter'
         });
 
         this.hotpeppers = new MyApp.Views.SearchResults({
