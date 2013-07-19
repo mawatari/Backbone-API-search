@@ -27,5 +27,6 @@ MyApp.Views.SearchBar = Backbone.View.extend({
 
         // Global Eventを発火
         MyApp.mediator.trigger('search', search);
+        MyApp.mediator.trigger('search:' + service, search);
     }
 });
